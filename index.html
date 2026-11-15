@@ -297,14 +297,14 @@ img{display:block;max-width:100%}
 </section>
 <section class="contact" id="contact"><div class="wrap contact-grid">
 <div class="contact-copy reveal"><div class="eyebrow">YOUR SHOWER. A FRESH START.</div><h2>Get Your Free Estimate.</h2>
-<p>Tell us where the project is, what you’re seeing, and what you’d like fixed. Add a few photos so we can understand the job before we call.</p>
-<div class="contact-steps"><div><b>01</b><span><strong>Tell us about the project</strong><small>City, service, and what needs attention.</small></span></div><div><b>02</b><span><strong>Send a few photos</strong><small>Show us the shower, grout lines, corners, or pan.</small></span></div><div><b>03</b><span><strong>We review and call you</strong><small>We’ll look over the details and contact you to discuss the project and next steps.</small></span></div></div>
+<p>Tell us where the project is, what you’re seeing, and what you’d like fixed. We’ll call you to discuss the project and arrange a convenient way for you to send photos.</p>
+<div class="contact-steps"><div><b>01</b><span><strong>Tell us about the project</strong><small>City, service, and what needs attention.</small></span></div><div><b>02</b><span><strong>We review your request</strong><small>We’ll look over your details before reaching out.</small></span></div><div><b>03</b><span><strong>We call and arrange photos</strong><small>You can send project pictures directly after we speak.</small></span></div></div>
 <div class="contact-help"><strong>Need help?</strong><p>Use the estimate form and tell us the best time to reach you. We’ll follow up using the phone number you provide.</p></div>
 </div>
-<form class="form" id="estimate-form" action="https://formspree.io/f/mqpqpznp" method="POST" enctype="multipart/form-data">
+<form class="form" id="estimate-form" action="https://formspree.io/f/mqpqpznp" method="POST">
 <input type="hidden" name="_subject" value="New Triple J Free Estimate Request">
 <div class="hp-field" aria-hidden="true"><label>Leave this field empty<input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label></div>
-<div class="form-kicker">LET’S TALK ABOUT YOUR PROJECT</div><h3>Request a Free Estimate</h3><p>Complete the form below. No need to call us first—we’ll review your request and reach out.</p>
+<div class="form-kicker">LET’S TALK ABOUT YOUR PROJECT</div><h3>Request a Free Estimate</h3><p>Complete the form below. No need to call us first—we’ll review your request and call you. You can send project photos directly after we speak.</p>
 <div class="fields">
 <div class="field"><label for="name">Your name <em>*</em></label><input autocomplete="name" id="name" name="name" placeholder="Full name" required=""/></div>
 <div class="field"><label for="phone">Phone number <em>*</em></label><input autocomplete="tel" id="phone" name="phone" placeholder="Best number to reach you" required="" type="tel"/></div>
@@ -312,11 +312,10 @@ img{display:block;max-width:100%}
 <div class="field"><label for="zip">ZIP code</label><input autocomplete="postal-code" id="zip" inputmode="numeric" name="zip" placeholder="ZIP code"/></div>
 <div class="field full"><label for="package-choice">Which service are you interested in?</label><select id="package-choice" name="service_interest" required><option disabled="" selected="" value="">Select a service</option><option value="Shower package — Silver">Shower restoration package — Silver</option><option value="Shower package — Gold">Shower restoration package — Gold</option><option value="Shower package — Platinum">Shower restoration package — Platinum</option><option value="Floor regrouting">Floor regrouting</option><option value="Clean and seal a floor">Clean and seal a floor</option><option value="Other">Other — please describe</option></select></div>
 <div class="field full"><label for="project">Tell us about the project <em>*</em></label><textarea id="project" name="project" placeholder="What’s going on with your shower or tile? Tell us about stained grout, failing caulk, loose or missing grout, calcium buildup, or anything else you’d like us to look at." required=""></textarea></div>
-<div class="field full"><label for="photos">Upload project pictures</label><input accept="image/jpeg,image/png,image/webp" id="photos" multiple="" name="photos" type="file"/><span class="form-note">Add clear photos of the full shower plus close-ups of the grout, corners, and shower pan. You can select multiple pictures.</span></div>
 <div class="field full"><label for="reach-time">Best time to reach you</label><select id="reach-time" name="reach_time"><option>Anytime</option><option>Morning</option><option>Afternoon</option><option>Evening</option></select></div>
 </div>
 <button class="btn dark" type="submit">Request My Free Estimate <span>→</span></button>
-<p class="form-note form-privacy">By submitting, you’re asking Triple J Grout &amp; Tile LLC to contact you about this project. Your information will be used to respond to your estimate request.</p>
+<p class="form-note form-privacy">By submitting, you’re asking Triple J Grout &amp; Tile LLC to contact you about this project. We’ll arrange photo sharing by phone if pictures are needed.</p>
 <div aria-live="polite" class="form-status" id="form-status" role="status"></div>
 </form>
 </div></section>
@@ -341,8 +340,7 @@ estimateForm.addEventListener('submit', async (event) => {
   if (!estimateForm.reportValidity()) return;
   const status = document.getElementById('form-status');
   const submitButton = estimateForm.querySelector('button[type="submit"]');
-  const originalButtonText = submitButton.innerHTML;
-  submitButton.disabled = true;
+    submitButton.disabled = true;
   submitButton.textContent = 'Sending your request…';
   status.textContent = '';
   status.classList.remove('show');
